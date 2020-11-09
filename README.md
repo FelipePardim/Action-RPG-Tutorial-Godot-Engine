@@ -54,4 +54,4 @@ This are the tool's used to develop this project:
     📝 License 
 </h2>
 
-This project is under [MIT](https://github.com/FelipePardim/Action-RPG-Tutorial-Godot-Engine/LICENSE.md) licensce.
+This project is under [MIT](https://github.com/FelipePardim/Action-RPG-Tutorial-Godot-Engine/LICENSE.md) license.
