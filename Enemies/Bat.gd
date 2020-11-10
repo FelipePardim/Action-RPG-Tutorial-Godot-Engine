@@ -4,7 +4,7 @@ const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 
 export var ACCELERATION = 300
 export var MAX_SPEED = 50
-export var FRICTION = 30
+export var FRICTION = 200
 
 enum {
 	IDLE,
@@ -15,6 +15,7 @@ enum {
 onready var sprite = $AnimatedSprite
 onready var stats = $Stats
 onready var playDetectionZone = $PlayerDetectionZone
+onready var hurtbox = $Hurtbox
 
 var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
@@ -49,6 +50,8 @@ func seek_player():
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
 	knockback = area.knockback_vector * 130
+	hurtbox.start_invincibility(0.2)
+	hurtbox.create_hit_effect()
 
 func _on_Stats_no_health():
 	queue_free()
