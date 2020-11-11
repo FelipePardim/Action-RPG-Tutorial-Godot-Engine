@@ -19,6 +19,7 @@ onready var playDetectionZone = $PlayerDetectionZone
 onready var hurtbox = $Hurtbox
 onready var softCollision = $SoftCollision
 onready var wanderController = $WanderController
+onready var animationPlayer = $AnimationPlayer
 
 var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
@@ -88,3 +89,9 @@ func _on_Stats_no_health():
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
+
+func _on_Hurtbox_invincibility_ended():
+	animationPlayer.play("Stop")
+
+func _on_Hurtbox_invincibility_started():
+	animationPlayer.play("Start")
