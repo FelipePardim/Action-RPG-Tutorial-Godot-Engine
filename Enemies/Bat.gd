@@ -29,6 +29,10 @@ var state = IDLE
 func _ready():
 	state = pick_random_state([IDLE, WANDER])
 
+	if rand_range(0, 10) > 9:
+		sprite.play("blackbat")
+		stats.set_health(8)
+
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
 	knockback = move_and_slide(knockback)
